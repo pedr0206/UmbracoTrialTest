@@ -1,0 +1,19 @@
+﻿@model IEnumerable<DrawEntry>
+
+<table style="width:100%">
+    <tr>
+        <th>Email</th>
+        <th>Product Number</th>
+
+    </tr>
+    @foreach (DrawEntry drawEntry in Model)
+    {
+        <tr>
+            <td>@drawEntry.Email</td>
+            <td>@drawEntry.ProductSerialNumber</td>
+        </tr>
+
+    }
+
+</table>
+
