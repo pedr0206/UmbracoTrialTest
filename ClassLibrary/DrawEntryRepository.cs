@@ -33,10 +33,10 @@ namespace ClassLibrary
             drawEntriesList = DatabaseAccess.GetEntryList().ToList();
 
         } 
-        private bool SerialNumberExists(string serial)
+        public bool SerialNumberExists(string serial)
         {
             bool value = false;
-            FileInfo file = new FileInfo("Serials.txt");
+            FileInfo file = new FileInfo(Directory.GetCurrentDirectory() + @"\Serials.txt");
             if (file.Exists)
             {
                 FileStream fileStream = file.OpenRead();
@@ -53,9 +53,13 @@ namespace ClassLibrary
                 streamReader.Dispose();
                 fileStream.Dispose();
             }
+            else
+            {
+                throw new FileNotFoundException();
+            }
             return value;
         }
-
+        
         public void Add(DrawSubmition drawSubmition)
         {
             if(drawSubmition.Age >= 18)
@@ -81,6 +85,10 @@ namespace ClassLibrary
             }
 
         }
+
+
+ 
+        //}
         public IEnumerable<DrawEntry> GetEntryList()
         {
             return drawEntriesList;

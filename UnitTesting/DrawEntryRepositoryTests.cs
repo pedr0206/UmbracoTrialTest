@@ -1,4 +1,5 @@
 ﻿using System;
+using ClassLibrary;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace UnitTesting
@@ -7,8 +8,16 @@ namespace UnitTesting
     public class DrawEntryRepositoryTests
     {
         [TestMethod]
-        public void TestMethod1()
+        public void Add_IsEqualTo_ReturnTrue()  //SerialNumberExists_Scenario_ExpectedBehavour
         {
+            //Arrange
+            var drawEntryRepository = DrawEntryRepository.Instance;
+
+            //Act
+            var result = drawEntryRepository.Add( new DrawSubmition { Age >= 18 } );
+            //Assert
+            Assert.AreEqual()
         }
+        
     }
 }
